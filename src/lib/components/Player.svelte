@@ -16,7 +16,7 @@ import Ink from "./Ink.svelte";
 
   const compileOnChange = (ink: string) => {
     let inkStory
-    console.log(ink)
+    // console.log(ink)
     const options = new CompilerOptions(null, [], false, null, null)
     const compiler = new Compiler(ink, options)
     
@@ -24,16 +24,16 @@ import Ink from "./Ink.svelte";
     try {
       inkStory = compiler.Compile()
       // parsedStory = compiler.parsedStory
-      console.log(inkStory)
+      // console.log(inkStory)
     } catch (e) {
       // parsedStory = undefined
       console.error(e)
     }
     return inkStory
   }
-
+  
   $: if ($editor.doc) {
-    story = compileOnChange($editor.doc.toString())
+    story = compileOnChange($editor.doc.sliceString(0))
   }
 </script>
 

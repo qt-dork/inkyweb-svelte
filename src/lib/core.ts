@@ -3,8 +3,10 @@
 
 import { EditorState, type Extension } from '@codemirror/state'
 import { EditorView, ViewPlugin, ViewUpdate } from '@codemirror/view'
+import { Gutters } from './gutters'
 import { writable, type Writable } from 'svelte/store'
 import { SheafState } from "./state"
+import { createSheafBinding, type SheafBindings } from './extensions/bindings'
 
 export class SheafCore {
   declare state: SheafState
@@ -12,7 +14,7 @@ export class SheafCore {
   declare subscribe: Writable<SheafState>["subscribe"]
   declare set: Writable<SheafState>["set"]
 
-  constructor(doc: string, extensions: Extension[] = []) {
+  constructor(doc: string, bindings: SheafBindings = {}, extensions: Extension[] = []) {
     const updateHandler = ViewPlugin.define(() => ({
       update: viewUpdate => this.update(viewUpdate)
     }))
@@ -23,12 +25,17 @@ export class SheafCore {
         extensions: [
           EditorView.lineWrapping,
           extensions,
+          updateHandler,
+          Gutters,
+          EditorView.lineWrapping,
+          createSheafBinding(this, bindings),
+          extensions,
           updateHandler
         ]
       })
     })
 
-    this.state = new SheafState({ self: this, view})
+    this.state = new SheafState({ self: this, view, bindings})
     this.store = writable(this.state)
     this.subscribe = this.store.subscribe
     this.set = this.store.set

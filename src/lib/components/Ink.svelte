@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Story } from 'inkjs/engine/Story'
-import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
   export let story: Story | null;
   let rendering = false
@@ -14,38 +14,36 @@ import { onMount } from 'svelte';
   type Text = {text: string;}
   const Text = (text: string): Text => ({text})
 
-  const initialStoryState: StoryState = {texts: [], choices: []}
-  let storyState = initialStoryState
-
-  $: console.log(story)
+  // const initialStoryState: StoryState = {texts: [], choices: []}
+  let storyState: StoryState = {texts: [], choices: []}
 
   $: if (story) {
-    storyState = initialStoryState
-    console.log("here")
-
-    continueStory(story)
+    storyState = continueStory(story)
   }
 
   $: ({texts, choices} = storyState)
 
-  const continueStory = (story: Story) => {
+  const continueStory = (story: Story, initialStoryState: StoryState = {texts: [], choices: []}) => {
+    let tempStoryState: StoryState = initialStoryState;
     while (story.canContinue) {
       var text = story.Continue() as string
       var tags = story.currentTags
-      storyState.texts = [...storyState.texts, Text(text)]
+      tempStoryState.texts = [...tempStoryState.texts, Text(text)]
       if (tags && tags.length > 0) {
-        storyState.texts = [...storyState.texts, Text(tags.map(t => `#${t}`).join(" "))]
+        tempStoryState.texts = [...tempStoryState.texts, Text(tags.map(t => `#${t}`).join(" "))]
       }
     }
     story.currentChoices.forEach((choice, index) => {
-      storyState.choices = [...storyState.choices, Choice(choice.text, choice.index)]
+      tempStoryState.choices = [...tempStoryState.choices, Choice(choice.text, choice.index)]
     })
+
+    return tempStoryState;
   }
 
   const choiceOnChoose = (index: number) => {
-    storyState.choices = []
+    const tempStory = {...storyState, choices: []}
     story.ChooseChoiceIndex(index)
-    continueStory(story)
+    storyState = continueStory(story, tempStory)
   }
 
   onMount(() => {

@@ -2,19 +2,19 @@
   import Sheaf from "$lib/components/Sheaf.svelte"
   import { onMount } from "svelte"
 
-  // let story;
-  // let loaded = false
-  // function passToPlayer(event) {
-  //   if (loaded) story = event.detail.data
-  // }
-
-  // const editor = new 
-
-  // onMount(() => loaded = true)
-  let doc = ""
+  let doc = `LIST letters = a,b,c
+    Once upon a time...
+    -(opts)
+    + Choice A.
+    + Choice B.
+    + Choice C.
+  
+    - They lived happily ever after {opts}.
+      -> opts
+  `
   let ready = false
 
-  onMount(async () => {
+  onMount(() => {
     ready = true
   })
 
@@ -24,8 +24,7 @@
   <title>Inky Web - Svelte</title>
 </svelte:head>
 
-<h1>CodeMirror deez nuts!</h1>
-<h6>hah gottem</h6>
+<h1>Inkyweb Svelte</h1>
 <div>
   <!-- {text} -->
 </div>
