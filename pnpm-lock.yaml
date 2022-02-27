@@ -13,9 +13,6 @@ specifiers:
   '@tsconfig/svelte': ^3.0.0
   '@typescript-eslint/eslint-plugin': ^5.10.1
   '@typescript-eslint/parser': ^5.10.1
-  '@wikijump/ftml-wasm-worker': ^0.1.5
-  '@wikijump/threads-worker-module': ^0.1.2
-  Story: link:inkjs/engine/Story
   eslint: ^7.32.0
   eslint-config-prettier: ^8.3.0
   eslint-plugin-svelte3: ^3.2.1
@@ -37,9 +34,6 @@ dependencies:
   '@codemirror/lang-javascript': 0.19.7
   '@codemirror/state': 0.19.9
   '@codemirror/view': 0.19.44
-  '@wikijump/ftml-wasm-worker': 0.1.5
-  '@wikijump/threads-worker-module': 0.1.2
-  Story: link:inkjs/engine/Story
   inkjs: github.com/smwhr/inkjs/bcf0868d5a6348486748577264f60867da64adec
   typescript-memoize: 1.1.0
 
@@ -578,34 +572,6 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@wikijump/ftml-wasm-worker/0.1.5:
-    resolution: {integrity: sha512-XgUfl7aAjt0Wjmw4qnLRdmhBBiCxx3OYw70+7HXaCiuvw96it0Qw+41fHEQRIHFSqM3FoIJqI0FwMirglIPn/g==}
-    dependencies:
-      '@wikijump/ftml-wasm': 1.6.3
-      '@wikijump/threads-worker-module': 0.1.2
-      '@wikijump/util': 0.1.2
-      threads: 1.7.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@wikijump/ftml-wasm/1.6.3:
-    resolution: {integrity: sha512-nXNCihXWbX4SFEvQxUwdntp3a1SUerbIKv9A3mvCtXbNicbUVRh4dlrryNc1MrrzNLhB4+kaAClXkYELZeIygA==}
-    dev: false
-
-  /@wikijump/threads-worker-module/0.1.2:
-    resolution: {integrity: sha512-Oa053jifKx/ixEfFFUxLO/tw3QJN5zG8iN+rJFLbxyVED+2xzJ4pnPD3XG4T+jhOh2YjhoPYhao81sC9eq/btw==}
-    dependencies:
-      '@wikijump/util': 0.1.2
-      threads: 1.7.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@wikijump/util/0.1.2:
-    resolution: {integrity: sha512-5EUmPLJrJSHmUs+bfQIlQVY5zobqQUQZxe/oRS30Vvxq/CS0g8mLbtemkn3QPlF9+3nK7ex5e7X01u/+iw1DdA==}
-    dev: false
-
   /acorn-jsx/5.3.2_acorn@7.4.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -716,6 +682,7 @@ packages:
   /callsites/3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
+    dev: true
 
   /chalk/2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
@@ -797,6 +764,7 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.2
+    dev: true
 
   /deep-is/0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
@@ -1134,12 +1102,6 @@ packages:
       - supports-color
     dev: true
 
-  /esm/3.2.25:
-    resolution: {integrity: sha512-U1suiZ2oDVWv4zPO56S0NcR5QriEahGtdN2OR6FiOG4WJvcjBVFB0qI4+eKoWFH483PKGuLuu6V8Z4T5g63UVA==}
-    engines: {node: '>=6'}
-    dev: false
-    optional: true
-
   /espree/7.3.1:
     resolution: {integrity: sha512-v3JCNCE64umkFpmkFGqzVKsOT0tN1Zr+ueqLZfpV1Ob8e+CEgPWa+OxCoGH3tnhimMKIaBm4m/vaRpJ/krRz2g==}
     engines: {node: ^10.12.0 || >=12.0.0}
@@ -1397,11 +1359,6 @@ packages:
     engines: {node: '>=0.12.0'}
     dev: true
 
-  /is-observable/2.1.0:
-    resolution: {integrity: sha512-DailKdLb0WU+xX8K5w7VsJhapwHLZ9jjmazqCJq4X12CTgqq73TKnbRcnSLuXYPOoLQgV5IrD7ePiX/h1vnkBw==}
-    engines: {node: '>=8'}
-    dev: false
-
   /isexe/2.0.0:
     resolution: {integrity: sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=}
     dev: true
@@ -1506,6 +1463,7 @@ packages:
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
+    dev: true
 
   /nanoid/3.3.1:
     resolution: {integrity: sha512-n6Vs/3KGyxPQd6uO0eH4Bv0ojGSUvuLlIHtC3Y0kEO23YRge8H9x1GCzLn28YX0H66pMkxuaeESFq4tKISKwdw==}
@@ -1521,10 +1479,6 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /observable-fns/0.6.1:
-    resolution: {integrity: sha512-9gRK4+sRWzeN6AOewNBTLXir7Zl/i3GB6Yl26gK4flxz8BXVpD3kt8amREmWNb0mxYOGDotvE5a4N+PtGGKdkg==}
-    dev: false
 
   /once/1.4.0:
     resolution: {integrity: sha1-WDsap3WWHUsROsF9nFC6753Xa9E=}
@@ -1924,33 +1878,12 @@ packages:
     resolution: {integrity: sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=}
     dev: true
 
-  /threads/1.7.0:
-    resolution: {integrity: sha512-Mx5NBSHX3sQYR6iI9VYbgHKBLisyB+xROCBGjjWm1O9wb9vfLxdaGtmT/KCjUqMsSNW6nERzCW3T6H43LqjDZQ==}
-    dependencies:
-      callsites: 3.1.0
-      debug: 4.3.3
-      is-observable: 2.1.0
-      observable-fns: 0.6.1
-    optionalDependencies:
-      tiny-worker: 2.3.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /tiny-glob/0.2.9:
     resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
     dependencies:
       globalyzer: 0.1.0
       globrex: 0.1.2
     dev: true
-
-  /tiny-worker/2.3.0:
-    resolution: {integrity: sha512-pJ70wq5EAqTAEl9IkGzA+fN0836rycEuz2Cn6yeZ6FRzlVS5IDOkFHpIoEsksPRQV34GDqXm65+OlnZqUSyK2g==}
-    requiresBuild: true
-    dependencies:
-      esm: 3.2.25
-    dev: false
-    optional: true
 
   /to-regex-range/5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}

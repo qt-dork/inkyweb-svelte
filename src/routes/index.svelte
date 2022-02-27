@@ -1,3 +1,7 @@
+<!-- <script context="module">
+  export const prerender = true;
+</script> -->
+
 <script lang="ts">
   import Sheaf from "$lib/components/Sheaf.svelte"
   import { onMount } from "svelte"

@@ -4,8 +4,8 @@
 
   import { Compiler, CompilerOptions } from "inkjs/compiler/Compiler"
   import { Story as ParsedStory } from "inkjs/compiler/Parser/ParsedHierarchy/Story"
-  import { Story } from "inkjs"
-import Ink from "./Ink.svelte";
+
+  import Ink from "./Ink.svelte";
 
   const { editor } = getContext<SheafContext>("sheaf")
 

@@ -37,9 +37,6 @@
     "@codemirror/lang-javascript": "^0.19.7",
     "@codemirror/state": "^0.19.9",
     "@codemirror/view": "^0.19.44",
-    "@wikijump/ftml-wasm-worker": "^0.1.5",
-    "@wikijump/threads-worker-module": "^0.1.2",
-    "Story": "link:inkjs/engine/Story",
     "inkjs": "git+https://github.com/smwhr/inkjs.git#compiler",
     "typescript-memoize": "^1.1.0"
   }

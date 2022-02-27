@@ -9,11 +9,8 @@ const config = {
 
 	kit: {
 		adapter: adapter(),
-
-		vite: {
-			optimizeDeps: {
-				include: ['inkjs']
-			}
+		prerender: {
+			enabled: false
 		}
 	}
 };
