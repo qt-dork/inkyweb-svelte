@@ -6,7 +6,7 @@
   import { setContext } from "svelte";
   import type { Readable } from "svelte/store";
   import { PreferenceHandler } from "$lib/pref";
-  import { matchBreakpoint } from "$lib/media.rem";
+  import { matchBreakpoint } from "$lib/media";
 
   import { getDefaultSheafSettings, type SheafContext } from "$lib/context";
   import { SheafCore } from "$lib/core";
