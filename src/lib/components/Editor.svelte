@@ -6,7 +6,9 @@
   
   let editorElement: HTMLElement
 
-  $: $editor.gutters = !small
+  $: $editor.gutters = $small
+
+  $: console.log($small)
   
   onMount(() => editor.mount(editorElement))
 

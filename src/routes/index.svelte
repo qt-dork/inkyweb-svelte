@@ -28,7 +28,7 @@
   <title>Inky Web - Svelte</title>
 </svelte:head>
 
-<h1>Inkyweb Svelte</h1>
+<!-- <h1>Inkyweb Svelte</h1> -->
 <div>
   <!-- {text} -->
 </div>
@@ -36,3 +36,9 @@
 <div class="app">
   {#if ready}<Sheaf {doc} />{/if}
 </div>
+
+<style>
+  .app {
+    height: 100%;
+  }
+</style>

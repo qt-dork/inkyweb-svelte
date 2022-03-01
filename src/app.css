@@ -13,7 +13,7 @@
 /*
   3. Allow percentage-based heights in the application
 */
-html, body {
+html, body, main {
   height: 100%;
 }
 /*

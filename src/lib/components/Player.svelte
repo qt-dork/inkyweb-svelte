@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getContext } from "svelte"
+  import { getContext, onMount } from "svelte"
   import type { SheafContext } from "$lib/context"
 
   import { Compiler, CompilerOptions } from "inkjs/compiler/Compiler"
@@ -12,6 +12,7 @@
   // let render = new RenderHandler()
   // let compiled = 
   let story
+  let loaded = false
   // let parsedStory
 
   const compileOnChange = (ink: string) => {
@@ -31,8 +32,12 @@
     }
     return inkStory
   }
+
+  onMount(() => {
+    loaded = true
+  })
   
-  $: if ($editor.doc) {
+  $: if ($editor.doc && loaded) {
     story = compileOnChange($editor.doc.sliceString(0))
   }
 </script>

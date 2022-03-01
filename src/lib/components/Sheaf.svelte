@@ -59,6 +59,7 @@
 <div class="sheaf-container" style="width: {width}; height: {height};">
   <div class="sheaf-panes">
     <div class="sheaf-pane sheaf-pane-editor {editorTheme}">
+      <div></div>
       <Editor />
     </div>
     {#if $settings.preview.enabled && !$small}
@@ -68,3 +69,46 @@
     {/if}
   </div>
 </div>
+
+<style>
+  .sheaf-container {
+    display: flex;
+    flex-direction: column;
+    contain: strict;
+  }
+
+  .sheaf-panes {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  .sheaf-panes > *:not(:last-child) {
+    border-right: solid 0.25rem black; /* change to not black later */
+  }
+
+  .sheaf-pane {
+    position: relative;
+    height: 100%;
+  }
+
+  .sheaf-pane-editor {
+    flex-grow: 1;
+
+    /* topbar stuff */
+    display: grid;
+    grid-template-areas: 
+      "topbar"
+      "editor";
+    grid-template-rows: 2.25rem calc(100% - 2.25rem);
+    grid-template-columns: 1fr;
+    min-width: 50%;
+  }
+
+  .sheaf-pane-preview {
+    --layout-body-max-width: 50rem
+    flex-shrink: 1;
+    width: 100%;
+    max-width: var(--layout-body-max-width);
+  }
+</style>
